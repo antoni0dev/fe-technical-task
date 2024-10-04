@@ -1,9 +1,9 @@
 import { QuoteRequest } from '@lifi/sdk';
 import { Header } from '../../components/Header';
-import { SwapForm } from '../../components/HomePage/SwapForm';
+import { SwapForm } from '~/components/SwapForm';
 import { Wrapper, Main } from './HomePage.styled';
 import { useState } from 'react';
-import { SwapCostDetails } from '~/components/HomePage/SwapCostDetails';
+import { SwapCostDetails } from '~/components/SwapCostDetails';
 import { useQuoteQuery } from '~/lib/hooks/useQuoteQuery';
 
 export type QuotePayload = Pick<

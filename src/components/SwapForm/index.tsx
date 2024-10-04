@@ -3,7 +3,7 @@ import { FormHeading, FormDescription, Form, AmountInput, Button } from './SwapF
 import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { swapFormSchema, SwapFormValues } from '~/lib/schemas/swapFormSchema';
-import { ChainSelector } from '../../ChainSelector';
+import { ChainSelector } from '../ChainSelector';
 import { TokenSelector } from '../TokenSelector';
 import { FormField } from '~/lib/ui/forms/FormField';
 import { FormLabel } from '~/lib/ui/forms/FormLabel';
