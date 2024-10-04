@@ -2,12 +2,11 @@
 
 ## Description
 
-This is an implementation of a simple swap form that uses the LIFI SDK to fetch the quote and execute the swap. The form is built using React and styled-components. The project is written in TypeScript and uses Vite for the build process. The project also includes a basic ESLint configuration.
+This is an implementation of a simple swap form that uses the LIFI SDK to fetch a swap quote. The form is built using React and styled-components. The project is written in TypeScript and uses Vite for the build process. The project also includes a basic ESLint configuration.
 
 ## Features
 
 - Fetches quote from LIFI SDK
-- Executes swap using LIFI SDK
 - Displays swap cost details
 - Handles form validation and error handling
 
