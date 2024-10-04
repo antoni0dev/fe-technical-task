@@ -1,5 +1,5 @@
 import { QuoteRequest } from '@lifi/sdk';
-import { Header } from '../../components/HomePage/Header';
+import { Header } from '../../components/Header';
 import { SwapForm } from '../../components/HomePage/SwapForm';
 import { Wrapper, Main } from './HomePage.styled';
 import { useState } from 'react';
