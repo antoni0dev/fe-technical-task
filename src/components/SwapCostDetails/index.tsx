@@ -12,35 +12,34 @@ type Props = {
 };
 
 export function SwapCostDetails({ quote, onClearQuotePayload, error, isFetching }: Props) {
-  let content;
-
-  if (isFetching) {
-    content = <Text>Calculating estimate...</Text>;
-  }
-  if (error) {
-    content = <FormErrorMessage>Error fetching estimate: {extractError(error)}</FormErrorMessage>;
-  }
-
   const estimatedFees = quote?.estimate?.feeCosts?.reduce(
     (sum, fee) => sum + Number(fee.amountUSD),
     0
   );
+
   const estimatedDuration = quote?.estimate?.executionDuration;
 
-  content = (
-    <>
-      <Heading>Swap Cost Details</Heading>
-      <Text>
-        Estimated Fees: {estimatedFees ? <BoldText>${estimatedFees?.toFixed(2)} </BoldText> : '--'}
-      </Text>
+  let content;
 
-      <Text>
-        Estimated Transfer Time:{' '}
-        {estimatedDuration ? <BoldText>{estimatedDuration} seconds</BoldText> : '--'}
-      </Text>
-      {quote && <Button onClick={onClearQuotePayload}>Clear</Button>}
-    </>
-  );
+  if (isFetching) {
+    content = <Text>Calculating estimate...</Text>;
+  } else if (error) {
+    content = <FormErrorMessage>Error fetching estimate: {extractError(error)}</FormErrorMessage>;
+  } else if (estimatedFees !== undefined && estimatedDuration !== undefined) {
+    content = (
+      <>
+        <Heading>Swap Cost Details</Heading>
+        <Text>
+          Estimated Fees: <BoldText>${estimatedFees?.toFixed(4)} </BoldText>
+        </Text>
 
-  return <Wrapper>{content}</Wrapper>;
+        <Text>
+          Estimated Transfer Time: <BoldText>{estimatedDuration} seconds</BoldText>
+        </Text>
+        {quote && <Button onClick={onClearQuotePayload}>Clear</Button>}
+      </>
+    );
+  }
+
+  return <Wrapper>{content || <Text>Fill the form to get data.</Text>}</Wrapper>;
 }
